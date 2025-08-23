@@ -36,6 +36,14 @@ Keep in mind, the charts show more than just numbers; they display events that w
 ---
 
 ## How to View the Visualizations
+All interactive visualizations are hosted via GitHub Pages
+- [State Labor Union Density 2000-2024](https://humbertor23.github.io/US-Labor-Unions/visualizations/Labor_Union_Project_I.html)
+- [Workers Involved in Industrial Action 1983-2023](https://humbertor23.github.io/US-Labor-Unions/visualizations/Labor_Union_Project_II.html)
+- [Racial Union Density 2000-2024](https://humbertor23.github.io/US-Labor-Unions/visualizations/Labor_Union_Project_III.html)
+- [Union Density and Education Effect on Wages by Demographic](https://humbertor23.github.io/US-Labor-Unions/visualizations/Labor_Union_Project_VI.html)
+- [American Labor Union Campaign Strategy](https://humbertor23.github.io/US-Labor-Unions/visualizations/Policy_Presentation.html#/title-slide)
+
+You may also browse the raw code in the `/visualizations` folder
 
 ---
 
