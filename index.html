@@ -2,57 +2,510 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>American Labor Unions under Neoliberalism</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body {
-      font-family: Verdana, sans-serif;
-      max-width: 900px;
-      margin: auto;
-      line-height: 1.6;
-      padding: 20px;
+    :root {
+      --primary-color: #1a4f8e;
+      --secondary-color: #e63946;
+      --accent-color: #3c8dbc;
+      --dark-color: #1d3557;
+      --light-color: #f1faee;
+      --gray-color: #6c757d;
+      --light-gray: #f8f9fa;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-    h1, h2 {
-      text-align: center;
-    }
-    ul {
-      list-style-type: none;
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
       padding: 0;
     }
-    li {
-      margin: 10px 0;
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 1100px;
+      margin: 0 auto;
+      line-height: 1.6;
+      padding: 20px;
+      color: #333;
+      background: linear-gradient(to bottom, #f9f9f9, #e6eef5);
     }
-    a {
+    
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: var(--primary-color);
+      border-radius: 10px;
+      color: white;
+      box-shadow: var(--shadow);
+    }
+    
+    h1 {
+      color: white;
+      margin-bottom: 10px;
+      font-size: 2.4rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
+    h2 {
+      color: var(--dark-color);
+      margin: 30px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent-color);
+    }
+    
+    .intro {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--secondary-color);
+    }
+    
+    /* --- Enhanced Carousel Styles --- */
+    .carousel-section {
+      margin: 40px 0;
+    }
+    
+    .carousel-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    
+    .carousel-item {
+      min-width: 100%;
+      position: relative;
+    }
+    
+    .carousel-img-container {
+      width: 100%;
+      height: 450px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+    }
+    
+    .carousel-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .carousel-caption h3 {
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+    }
+    
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 15px;
+    }
+    
+    .carousel-control {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: var(--dark-color);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .carousel-control:hover {
+      background-color: white;
+      transform: scale(1.1);
+    }
+    
+    .dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .dot {
+      height: 14px;
+      width: 14px;
+      margin: 0 8px;
+      display: inline-block;
+      border-radius: 50%;
+      background-color: #bbb;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .dot.active {
+      background-color: var(--primary-color);
+      transform: scale(1.2);
+    }
+    
+    .dot:hover {
+      background-color: var(--accent-color);
+    }
+    
+    /* Visualizations List */
+    .visualizations {
+      margin: 40px 0;
+    }
+    
+    .vis-list {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .vis-list li {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: var(--shadow);
+    }
+    
+    .vis-list li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .vis-list a {
       text-decoration: none;
-      color: #0056b3;
+      color: var(--dark-color);
+      font-weight: 600;
+      display: block;
+      font-size: 1.1rem;
+      padding: 20px;
+      padding-bottom: 15px;
+      border-left: 5px solid var(--accent-color);
     }
-    a:hover {
-      text-decoration: underline;
+    
+    .vis-list a:hover {
+      color: var(--primary-color);
     }
+    
+    .vis-list p {
+      margin-top: 8px;
+      color: var(--gray-color);
+      font-size: 0.95rem;
+      padding: 0 20px 20px;
+    }
+    
+    .vis-icon {
+      margin-right: 10px;
+      color: var(--accent-color);
+    }
+    
     .footer {
-      margin-top: 40px;
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
       font-size: 0.9em;
       text-align: center;
-      color: #555;
+      color: var(--gray-color);
+    }
+    
+    .license {
+      margin-top: 10px;
+      font-style: italic;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .carousel-img-container {
+        height: 400px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .carousel-container {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+      
+      .carousel-img-container {
+        height: 350px;
+      }
+      
+      .carousel-control {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+      
+      .carousel-caption h3 {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+      
+      .subtitle {
+        font-size: 1rem;
+      }
+      
+      .carousel-img-container {
+        height: 300px;
+      }
+      
+      .vis-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .carousel-caption {
+        padding: 15px;
+      }
+      
+      .carousel-caption h3 {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>American Labor Unions under Neoliberalism</h1>
-  <p>
-    This site presents interactive visualizations that explore how economic conditions since the 1980s have shaped America's trade unions, workforce, and industries.
-  </p>
+  <header>
+    <h1>American Labor Unions under Neoliberalism</h1>
+  </header>
   
-  <h2>Visualizations</h2>
-  <ul>
-    <li><a href="visualizations/Labor_Union_Project_I.html">State Labor Union Density 2000-2024</a></li>
-    <li><a href="visualizations/Labor_Union_Project_II.html">Workers Involved in Industrial Action 1983-2023</a></li>
-    <li><a href="visualizations/Labor_Union_Project_III.html">Racial Union Density 2000-2024</a></li>
-    <li><a href="visualizations/Labor_Union_Project_VI.html">Union Density and Education Effect on Wages by Demographic</a></li>
-    <li><a href="visualizations/Policy_Presentation.html">American Labor Union Campaign Strategy</a></li>
-  </ul>
+  <div class="intro">
+    <p>Americans' democratic and labor rights are on the verge of destruction. Despite the current crisis, workers have the power to fight back and win. In 2023, workers walked off their jobs at the highest levels this century. Nonetheless, more battles must be won and that requires more brave men and women to step up. Strengthen the modern labor movement by learning about its triumphs and failures!</p>
+  </div>
+  
+  <!-- Carousel Section -->
+  <section class="carousel-section">
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="carousel-item">
+          <div class="carousel-img-container">
+            <img src="images/Strike1.jpg" class="carousel-img" alt="CWA Union Members Celebrating their New Contract">
+          </div>
+          <div class="carousel-caption">
+            <h3>1983 AT&T Strike</h3>
+            <p>Credit: American Postal Workers Union</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-img-container">
+            <img src="images/Strike2.jpg" class="carousel-img" alt="UAW Members on Strike in Flint, Michigan">
+          </div>
+          <div class="carousel-caption">
+            <h3>1998 GM Strike</h3>
+            <p>Credit: MLive</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-img-container">
+            <img src="images/Strike3.jpg" class="carousel-img" alt="CWA Members Picketing their Employer">
+          </div>
+          <div class="carousel-caption">
+            <h3>2004 SBC Communications Strike</h3>
+            <p>Credit: Kim Komenich, SF Chronicle</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-img-container">
+            <img src="images/Strike4.jpg" class="carousel-img" alt="Arizona Public School Teachers March">
+          </div>
+          <div class="carousel-caption">
+            <h3>2018 Arizona Teachers Strike</h3>
+            <p>Credit: Ross D.  Franklin, AP</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-img-container">
+            <img src="images/Strike5.jpg" class="carousel-img" alt="SEIU Labor Day Protests in Los Angeles">
+          </div>
+          <div class="carousel-caption">
+            <h3>2023 Kaiser Permanente Strike</h3>
+            <p>Credit: AP</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="carousel-controls">
+        <button class="carousel-control prev" aria-label="Previous slide">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-control next" aria-label="Next slide">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+      <span class="dot" data-index="4"></span>
+    </div>
+  </section>
+
+  <section class="visualizations">
+    <h2>Interactive Visualizations</h2>
+    <ul class="vis-list">
+      <li>
+        <a href="visualizations/Labor_Union_Project_I.html">
+          <i class="fas fa-map-marked-alt vis-icon"></i>State Labor Union Density 2000-2024
+        </a>
+      </li>
+      <li>
+        <a href="visualizations/Labor_Union_Project_II.html">
+          <i class="fas fa-chart-line vis-icon"></i>Workers Involved in Industrial Action 1983-2023
+        </a>
+      </li>
+      <li>
+        <a href="visualizations/Labor_Union_Project_III.html">
+          <i class="fas fa-users vis-icon"></i>Racial Union Density 2000-2024
+        </a>
+      </li>
+      <li>
+        <a href="visualizations/Labor_Union_Project_VI.html">
+          <i class="fas fa-graduation-cap vis-icon"></i>Union Density and Education Effect on Wages by Demographic
+        </a>
+      </li>
+      <li>
+        <a href="visualizations/Policy_Presentation.html">
+          <i class="fas fa-handshake vis-icon"></i>American Labor Union Campaign Strategy
+        </a>
+      </li>
+    </ul>
+  </section>
 
   <div class="footer">
     <p>Created with R | Licensed under CC BY-NC 4.0</p>
+    <p class="license">This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</p>
   </div>
+
+  <!-- Carousel Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      let currentIndex = 0;
+      const slides = document.querySelectorAll('.carousel-item');
+      const dots = document.querySelectorAll('.dot');
+      const carousel = document.querySelector('.carousel');
+      const prevButton = document.querySelector('.carousel-control.prev');
+      const nextButton = document.querySelector('.carousel-control.next');
+      const slideCount = slides.length;
+      
+      // Set initial carousel width
+      carousel.style.width = `${slideCount * 100}%`;
+      
+      // Set each slide width
+      slides.forEach(slide => {
+        slide.style.width = `${100 / slideCount}%`;
+      });
+      
+      function goToSlide(index) {
+        if (index < 0) {
+          index = slideCount - 1;
+        } else if (index >= slideCount) {
+          index = 0;
+        }
+        
+        currentIndex = index;
+        const translateX = -currentIndex * (100 / slideCount);
+        carousel.style.transform = `translateX(${translateX}%)`;
+        
+        // Update dots
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === currentIndex);
+        });
+      }
+      
+      function nextSlide() {
+        goToSlide(currentIndex + 1);
+      }
+      
+      function prevSlide() {
+        goToSlide(currentIndex - 1);
+      }
+      
+      // Set up event listeners
+      prevButton.addEventListener('click', prevSlide);
+      nextButton.addEventListener('click', nextSlide);
+      
+      dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+          const index = parseInt(this.getAttribute('data-index'));
+          goToSlide(index);
+        });
+      });
+      
+      // Auto-advance slides
+      let slideInterval = setInterval(nextSlide, 5000);
+      
+      // Pause auto-advancement when hovering over carousel
+      const carouselContainer = document.querySelector('.carousel-container');
+      carouselContainer.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+      });
+      
+      carouselContainer.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, 5000);
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
